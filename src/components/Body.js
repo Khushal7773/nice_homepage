@@ -1,30 +1,17 @@
 import React, {useState} from "react";
 import AppStoreLogo from "../assets/Appstore_Logo.png";
 import FiveStar from "../assets/Five-Star.png";
-import Angry from "../assets/angry.png";
 import LoremIpsum from "react-lorem-ipsum";
-import Slider from "react-slick";
 import Owl from "../assets/Owl.png";
 import Tired from "../assets/tired.png";
 import bgLeft from "../assets/bg-left.png";
 import bgRight from "../assets/bg-right.png";
 import bgLeft2 from "../assets/bg-left-2.png";
-import bgRight2 from "../assets/bg-right-2.png";
 import Ahaed from "../assets/Ahead.png";
 import Smiley from "../assets/smiling.png"; 
-
-
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import SlidesComponent from "./Slides";
 
 function Body() {
-    const sliderSettings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      };
 
       const events = [
         {  title: 'Event 1', description: <p><LoremIpsum p={1} /></p> },
@@ -33,7 +20,7 @@ function Body() {
         {  title: 'Event 4', description: <p><LoremIpsum p={1} /></p> },
         {  title: 'Event 5', description: <p><LoremIpsum p={1} /></p> },
         
-      ];
+      ]
 
       const [activeEventIndex, setActiveEventIndex] = useState(0);
 
@@ -54,19 +41,19 @@ function Body() {
 
       return ( 
         <>
-        <section className="bg-gray-300 py-16 m-6 h-[36rem] rounded-xl  flex justify-between">
-        <div className="w-1/2 text-black text-start px-14">
-          <p className="py-4">Ahead app</p>
-          <p className='py-4 font-bold text-6xl'>Master your life by mastering your emotions</p>
-          <span className="py-4 flex justify-normal">
-            <img src={AppStoreLogo} alt='Download on the app store' className="rounded-md mr-4" />
-            <span>
-            <img src={FiveStar} alt="Five Star Rating" className="w-20 "/>
-            <p className="text-xs mx-2">100+ AppStore reviews</p>
+        <section className="bg-gray-200 py-16 m-6 h-[36rem] rounded-xl  flex justify-between">
+          <div className="w-1/2 text-black text-start px-14">
+            <p className="py-4">Ahead app</p>
+            <p className='py-4 font-bold text-6xl'>Master your life by mastering your emotions</p>
+            <span className="py-4 flex justify-normal">
+              <img src={AppStoreLogo} alt='Download on the app store' className="rounded-md mr-4" />
+              <span>
+              <img src={FiveStar} alt="Five Star Rating" className="w-20 "/>
+              <p className="text-xs mx-2">100+ AppStore reviews</p>
+              </span>
             </span>
-          </span>
           
-        </div>
+          </div>
         <div className="w-1/2"
         style={{
           backgroundImage: `url(${bgRight})` , 
@@ -84,47 +71,7 @@ function Body() {
         <p className='text-xl w-1/3 mx-10 px-10'>They are more successful in their pursuits and make for inspiring leaders. According to science, they earn $29k a year.</p>
       </section>
 
-      
-      <section className="py-16">
-        <div className="container mx-auto">
-          <div className="flex justify-normal items-center py-10">
-          <h3 className="text-5xl font-bold mb-8 px-14 text-start">Does this sound familiar...</h3>
-          <img src={Angry} alt="Angry logo" className="h-10 mb-8" />
-          </div>
-          <Slider {...sliderSettings}>
-          
-            <div className="bg-slate-200 p-6 rounded-lg shadow">
-              <h4 className="text-lg font-bold mb-2">Feature 1</h4>
-              <p className="text-gray-700"><LoremIpsum p={1}  avgWordsPerSentence={1} /></p>
-            </div>
-            <div className="bg-purple-200 p-6 rounded-lg shadow">
-              <h4 className="text-lg font-bold mb-2">Feature 2</h4>
-              <p className="text-gray-700"><LoremIpsum p={1}  avgWordsPerSentence={1} /></p>
-            </div>
-            <div className="bg-gray-200 p-6 rounded-lg shadow">
-              <h4 className="text-lg font-bold mb-2">Feature 3</h4>
-              <p className="text-gray-700"><LoremIpsum p={1}  avgWordsPerSentence={1} /></p>
-            </div>
-            <div className="bg-blue-200 p-6 rounded-lg shadow">
-              <h4 className="text-lg font-bold mb-2">Feature 4</h4>
-              <p className="text-gray-700"> <LoremIpsum p={1}  avgWordsPerSentence={1} /></p>
-            </div>
-            <div className="bg-pink-200 p-6 rounded-lg shadow">
-              <h4 className="text-lg font-bold mb-2">Feature 5</h4>
-              <p className="text-gray-700"><LoremIpsum p={1}  avgWordsPerSentence={1} /></p>
-            </div>
-            <div className="bg-gray-200 p-6 rounded-lg shadow">
-              <h4 className="text-lg font-bold mb-2">Feature 6</h4>
-              <p className="text-gray-700"><LoremIpsum p={1}  avgWordsPerSentence={1} /></p>
-            </div>
-          
-          </Slider>
-        </div>
-      </section>
-
-
-
-
+      <SlidesComponent />
 
     <section className="py-16">
         <div className="flex justify-between items-center  bg-pink-100 m-6 p-10 h-[36rem] rounded-xl"
@@ -156,36 +103,33 @@ function Body() {
 
 
     <section className="m-6 h-[36rem] rounded-xl px-8 py-16">
-  <div className="mx-14">
-    <p>Wrong with self-improvement & how we're fixing it.</p>
-    <span className="flex justify-normal py-2" >
-      <p className="text-5xl font-bold">Self-improvement.Ugh.</p>
-      <img src={Tired} alt="Tired" className="h-10 mb-5" />
-    </span>
-  </div>
-  <div className="border-l-4 border-blue-400 ml-[28rem] my-3 py-4 overflow-y-auto max-h-[25rem]">
-    {events.map((event, index) => (
-      <div
-        className="relative mb-6"
-        key={index}
-        id={`event-${index}`}
-        onClick={() => scrollToEvent(index)}
-      >
-        <div
-          className={`absolute top-5 -left-3.5 bg-blue-500 h-6 w-6 rounded-full border-4 border-white ${index ===
-            activeEventIndex ? 'active-dot' : ''}`}
-        ></div>
-        <h3 className="mx-8">{event.title}</h3>
-        <p className="mx-8">{event.description}</p>
+      <div className="mx-14">
+        <p>Wrong with self-improvement & how we're fixing it.</p>
+        <span className="flex justify-normal py-2" >
+          <p className="text-5xl font-bold">Self-improvement.Ugh.</p>
+          <img src={Tired} alt="Tired" className="h-10 mb-5" />
+        </span>
       </div>
-    ))}
-  </div>
-</section>
+      <div className="border-l-4 border-blue-400 ml-[28rem] my-3 py-4 overflow-y-auto max-h-[25rem]">
+        {events.map((event, index) => (
+          <div
+            className="relative mb-6"
+            key={index}
+            id={`event-${index}`}
+            onClick={() => scrollToEvent(index)}
+          >
+            <div
+              className={`absolute top-5 -left-3.5 bg-blue-500 h-6 w-6 rounded-full border-4 border-white ${index ===
+              activeEventIndex ? 'active-dot' : ''}`}
+            ></div>
+            <h3 className="mx-8">{event.title}</h3>
+            <p className="mx-8">{event.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
 
-
-
-
-<section className='flex justify-between p-10'>
+      <section className='flex justify-between p-10'>
         <p className='text-black font-bold text-3xl w-1/3 mx-10 px-10'>Be the best you with EQ</p>
         <p className=' text-xl w-1/3 mx-10 px-10'>Not having your own emotions under control might be holding you back.</p>
         <p className='text-xl w-1/3 mx-10 px-10'>Additionally, not understanding those of others stops you from being parent, friend you can be.</p>
@@ -221,10 +165,17 @@ function Body() {
 
 
 
-<section className="bg-gray-200 m-6 h-[36rem] rounded-xl px-8 py-16">
+<section className="bg-gray-200 m-6 h-[36rem] rounded-xl px-8 py-16"
+  style={{
+  backgroundImage: `url(${bgLeft})` , 
+  backgroundSize: 'contain',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+}}
+>
   <div className="flex justify-between">
     <h1 className="text-5xl font-bold mx-14">Work with us</h1>
-    <img src={Ahaed} alt="Ahead" className="mx-10" />
+    <img src={Ahaed} alt="Ahead" className="mx-14" />
   </div>
   <div className="my-6 flex justify-between ">
     <div className="bg-white text-black rounded-xl mx-14 w-1/2 p-10">
@@ -236,16 +187,15 @@ function Body() {
 
     </div>
     <div className="bg-white text-black rounded-xl mx-14 w-1/2 p-10 overflow-y-auto max-h-[25rem]">
-  {events.map((event, index) => (
-    <div className="relative mb-6 border-black" key={index}>
-      <h3 className="mx-8">{event.title}</h3>
-      <p className="mx-8">{event.description}</p>
+      {events.map((event, index) => (
+        <div className="relative mb-6 border-black" key={index}>
+          <h3 className="mx-8">{event.title}</h3>
+          <p className="mx-8">{event.description}</p>
+        </div>
+      ))}
     </div>
-  ))}
-</div>
 
   </div>
-
 </section>
 
 
@@ -256,43 +206,27 @@ function Body() {
   <div className="flex justify-between mt-6">
     <div className="bg-pink-50 mx-14 px-3 py-8 rounded-xl" >
       <h1 className="text-xl font-bold">Senior Full-Stack Engineer</h1>
-        <li className="text-sm">Full time position</li>
-        <li className="text-sm">Berlin or remote</li>
-        <li className="text-sm">€65-85k, 0.5-1.50% equity share options</li>
+      <li className="text-sm">Full time position</li>
+      <li className="text-sm">Berlin or remote</li>
+      <li className="text-sm">€65-85k, 0.5-1.50% equity share options</li>
     </div>
     <div className="bg-pink-50 mx-14 px-3 py-8 rounded-xl" >
       <h1 className="text-xl font-bold" >Senior Designer</h1>
-
-        <li className="text-sm">Full time position</li>
-        <li className="text-sm">Berlin or remote</li>
-        <li className="text-sm">€40-55k, 0.25-0.50% equity share options</li>
-        
+      <li className="text-sm">Full time position</li>
+      <li className="text-sm">Berlin or remote</li>
+      <li className="text-sm">€40-55k, 0.25-0.50% equity share options</li>
     </div>
     <div className="bg-pink-50 mx-14 px-3 py-8 rounded-xl" >
       <h1 className="text-xl font-bold" >Superstar Intern</h1>
-      
-        <li className="text-sm" >Full time position</li>
-        <li className="text-sm">Berlin or remote</li>
-        <li className="text-sm">€20-24k, 0.5-1.50% equity share options</li>
-      
+      <li className="text-sm" >Full time position</li>
+      <li className="text-sm">Berlin or remote</li>
+      <li className="text-sm">€20-24k, 0.5-1.50% equity share options</li>
     </div>
-    
-    
   </div>
-
 </section>
 
-
-
-
-<section>
-  
-</section>
-
-
-
-      </>
-      )
+</>
+)
 
 };
 
