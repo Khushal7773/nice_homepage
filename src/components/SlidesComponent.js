@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import Slider from 'react-slick';
 import LoremIpsum from 'react-lorem-ipsum';
 import Angry from '../assets/angry.png';
@@ -15,7 +15,7 @@ const SlidesComponent = () => {
         slidesToScroll: 1,
       };
     return(
-        <section className="py-16">
+        <section className="py-16 h-auto ">
         <div className="container mx-auto">
           <div className="flex justify-normal items-center py-10">
           <h3 className="text-5xl font-bold mb-8 px-14 text-start">Does this sound familiar...</h3>
